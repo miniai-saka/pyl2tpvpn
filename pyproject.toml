@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pyl2tpvpn"
+version = "0.3.0"
+authors = [{name = "miniai-saka"}]
+description = "Isolated Python IPv4 sockets over L2TP/IPsec and native IKEv2"
+requires-python = ">=3.11"
+dependencies = ["pycryptodome>=3.21"]
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+keywords = ["vpn", "l2tp", "ipsec", "ikev2", "userspace"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Internet",
+    "Topic :: Security :: Cryptography",
+]
+
+[project.urls]
+Source = "https://github.com/miniai-saka/pyl2tpvpn"
+Issues = "https://github.com/miniai-saka/pyl2tpvpn/issues"
+
+[project.optional-dependencies]
+console = ["requests[socks]>=2.32.3"]
+test = ["pytest>=8", "scapy>=2.6", "cryptography>=43", "requests[socks]>=2.32.3"]
+
+[project.scripts]
+pyl2tpvpn = "pyl2tpvpn.__main__:main"
+pyl2tpvpn-console = "pyl2tpvpn.console:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

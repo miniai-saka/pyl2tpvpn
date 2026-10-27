@@ -1,0 +1,7 @@
+include LICENSE README.md SECURITY.md CONTRIBUTING.md CHANGELOG.md RELEASE_NOTES.md
+include start_console.cmd vpn_console.py .gitignore .gitattributes .env.example
+recursive-include docs *.md
+recursive-include examples *.py
+recursive-include tests *.py *.md LICENSE
+recursive-include .github *.yml
+global-exclude *.py[cod] *.pcap *.pcapng *.log
